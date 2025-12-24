@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surprise</title>
+
+<style>
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+}
+.bg{
+  min-height:100vh;
+  background:url('background.jpg') center/cover no-repeat;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+}
+.panel{
+  width:100%;
+  max-width:420px;
+  padding:18px;
+  background:rgba(0,0,0,0.45);
+}
+.msg{
+  color:#fff;
+  text-align:center;
+  font-size:14px;
+  min-height:22px;
+  margin-bottom:8px;
+}
+.answer{
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  gap:6px;
+  margin-bottom:10px;
+}
+.answer label{
+  color:#fff;
+  font-size:13px;
+}
+.answer input{
+  width:120px;
+  padding:6px 8px;
+  border-radius:6px;
+  border:none;
+}
+.play{
+  width:100%;
+  height:44px;
+  background:red;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:600;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+<div class="bg">
+  <div class="panel">
+    <div id="msg" class="msg"></div>
+
+    <div class="answer">
+      <label>javab :</label>
+      <input id="ans">
+    </div>
+
+    <div id="play" class="play">PLAY</div>
+
+    <audio id="audio" src="برای پردیس❤️هست.mp3"></audio>
+  </div>
+</div>
+
+<script>
+const waitText = "lotfan ta 11:59 sabr kon , vaqtesh nareside";
+const target = new Date();
+target.setHours(23,59,0,0);
+
+const msg = document.getElementById("msg");
+const play = document.getElementById("play");
+const audio = document.getElementById("audio");
+
+play.onclick = () => {
+  if (new Date() < target) {
+    msg.textContent = waitText;
+    return;
+  }
+  audio.play();
+};
+</script>
+</body>
+</html>
